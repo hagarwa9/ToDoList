@@ -1,27 +1,67 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="stylesheet" href="todo.css" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
+  <head>
+    <link rel="stylesheet" href="todo.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div id="myDIV" class="header">
+      <h2 style="margin: 5px">My To Do List</h2>
+      <input type="text" id="myInput" placeholder="Title..." />
+      <span onclick="newElement()" class="addBtn">Add</span>
+    </div>
 
-<div id="myDIV" class="header">
-  <h2 style="margin:5px">My To Do List</h2>
-  <input type="text" id="myInput" placeholder="Title...">
-  <span onclick="newElement()" class="addBtn">Add</span>
-</div>
+    <div id="options">
+      <div id="sort">
+        <input
+          type="radio"
+          id="ascending"
+          name="sort"
+          value="ascending"
+          onchange="reverseListing()"
+        />
+        <label for="ascending">Show in order</label>
+        <input
+          type="radio"
+          id="descending"
+          name="sort"
+          value="descending"
+          onchange="reverseListing()"
+        />
+        <label for="descending">Show most recent first</label>
+      </div>
 
-<ul id="myUL">
-  <li>Hit the gym</li>
-  <li class="checked">Pay bills</li>
-  <li>Meet George</li>
-  <li>Buy eggs</li>
-  <li>Read a book</li>
-  <li>Organize office</li>
-</ul>
+      <div id="moreOptions">
+        <input
+          type="radio"
+          id="inComplete"
+          name="items"
+          value="inComplete"
+          onchange="toggleShowInComplete()"
+        />
+        <label for="inComplete">Show incomplete tasks</label>
+        <input
+          type="radio"
+          id="complete"
+          name="items"
+          value="complete"
+          onchange="toggleShowComplete()"
+        />
+        <label for="complete">Show complete tasks</label>
+        <input
+          type="radio"
+          id="all"
+          name="items"
+          value="all"
+          onchange="toggleShowAll()"
+          checked
+        />
+        <label for="all">Show all tasks</label>
+      </div>
+    </div>
 
-<script src="todo.js"></script>
+    <ul id="myUL"></ul>
 
-</body>
+    <script src="todo.js"></script>
+  </body>
 </html>
